@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct StudentHomeView: View {
     @State private var selectedDate: Date = Date()  // State to track the selected date
     @State private var isPunchedIn: Bool = false  // State for punch in/out
     @State private var timeElapsed: String = "00:00:00"  // Placeholder for the timer
@@ -213,12 +213,12 @@ struct WeekView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct StudentHomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            HomeView()
+            StudentHomeView()
                 .preferredColorScheme(.light)  // Light mode preview
-            HomeView()
+            StudentHomeView()
                 .preferredColorScheme(.dark)  // Dark mode preview
         }
     }
