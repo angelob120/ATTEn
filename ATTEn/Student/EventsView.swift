@@ -4,7 +4,6 @@
 //
 //  Created by AB on 11/1/24.
 //
-
 import SwiftUI
 
 struct EventsView: View {
@@ -16,6 +15,7 @@ struct EventsView: View {
             Text("Events:")
                 .font(.largeTitle)
                 .fontWeight(.bold)
+                .foregroundColor(.primary)
                 .padding(.leading, 16)
                 .padding(.top, 20)
             
@@ -23,23 +23,23 @@ struct EventsView: View {
             HStack {
                 Text("Date")
                     .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
                 
                 Spacer()
                 
                 Text("Event")
                     .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
                 
                 Spacer()
                 
                 Image(systemName: "arrow.up.arrow.down")
                     .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 12)
-            .background(Color(UIColor.systemGray6))
+            .background(Color(UIColor.secondarySystemBackground))
             .cornerRadius(8)
             .padding(.horizontal, 16)
             
@@ -56,6 +56,7 @@ struct EventsView: View {
             
             Spacer()
         }
+        .background(Color(UIColor.systemBackground)) // Adaptive background color
         .navigationBarTitle("Events", displayMode: .inline)
     }
 }
@@ -79,10 +80,11 @@ struct EventRow: View {
                 Text(event.date)
                     .font(.headline)
                     .fontWeight(.bold)
+                    .foregroundColor(.primary)
                 
                 Text(event.day)
                     .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
             }
             .padding(.vertical, 10)
             
@@ -93,15 +95,15 @@ struct EventRow: View {
                 Text(event.title)
                     .font(.headline)
                     .fontWeight(isHighlighted ? .bold : .regular)
-                    .foregroundColor(isHighlighted ? Color.white : Color.black)
+                    .foregroundColor(isHighlighted ? .white : .primary)
                 
                 Text(event.subtitle)
                     .font(.subheadline)
-                    .foregroundColor(isHighlighted ? Color.white.opacity(0.8) : Color.gray)
+                    .foregroundColor(isHighlighted ? Color.white.opacity(0.8) : .secondary)
             }
             .padding(.vertical, 10)
             .padding(.horizontal, 50)
-            .background(isHighlighted ? Color.green : Color(UIColor.systemGray6))
+            .background(isHighlighted ? Color.green : Color(UIColor.secondarySystemBackground))
             .cornerRadius(12)
             
             Spacer()
@@ -111,7 +113,7 @@ struct EventRow: View {
                 // Action for more options
             }) {
                 Image(systemName: "ellipsis")
-                    .foregroundColor(isHighlighted ? Color.white : Color.gray)
+                    .foregroundColor(isHighlighted ? .white : .secondary)
             }
         }
         .padding(.vertical, 5)
@@ -120,6 +122,11 @@ struct EventRow: View {
 
 struct EventsView_Previews: PreviewProvider {
     static var previews: some View {
-        EventsView()
+        Group {
+            EventsView()
+                .preferredColorScheme(.light)
+            EventsView()
+                .preferredColorScheme(.dark)
+        }
     }
 }

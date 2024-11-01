@@ -5,33 +5,31 @@
 //  Created by AB on 11/1/24.
 //
 
-
 import SwiftUI
 
 struct HomeView: View {
     @State private var selectedDate: Date = Date()  // State to track the selected date
     @State private var isPunchedIn: Bool = false  // State for punch in/out
-    @State private var timeElapsed: String = "00:00"  // Placeholder for the timer
+    @State private var timeElapsed: String = "00:00:00"  // Placeholder for the timer
     @State private var weekOffset: Int = 0  // Offset for swiping between weeks
     @State private var dragOffset: CGFloat = 0  // For tracking the drag gesture
-
+    @State private var timer: Timer?  // Timer instance
+    @State private var secondsElapsed: Int = 0  // Counter for total elapsed seconds
+    
     private let calendar = Calendar.current
     private let dateFormatter: DateFormatter
     private let dayOfWeekFormatter: DateFormatter
     private let monthFormatter: DateFormatter  // Formatter for the month name
 
     init() {
-        // Set up a date formatter to display the day number
         dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d"  // For the day number
+        dateFormatter.dateFormat = "d"  // Day number
         
-        // Formatter for day of the week (like Sun, Mon)
         dayOfWeekFormatter = DateFormatter()
-        dayOfWeekFormatter.dateFormat = "EEE"  // For the day of the week (short format)
+        dayOfWeekFormatter.dateFormat = "EEE"  // Day of the week
         
-        // Formatter for the month name
         monthFormatter = DateFormatter()
-        monthFormatter.dateFormat = "MMMM yyyy"  // For displaying the current month (e.g., "September 2024")
+        monthFormatter.dateFormat = "MMMM yyyy"  // Month and year
     }
     
     var body: some View {
@@ -39,7 +37,6 @@ struct HomeView: View {
             // Week Calendar View
             VStack {
                 HStack {
-                    // Display the current month and year
                     Text(monthFormatter.string(from: firstDayOfTheWeek(weekOffset: weekOffset)))
                         .font(.title2)
                         .bold()
@@ -47,19 +44,16 @@ struct HomeView: View {
                     Spacer()
                 }
                 
-                Divider()  // Adds a line separator
+                Divider()
                 
-                // Swipable Week View with two weeks visible during the drag
                 GeometryReader { geometry in
                     HStack(spacing: 0) {
-                        // Current week
                         WeekView(dates: weekDays(weekOffset: weekOffset),
                                  selectedDate: $selectedDate,
                                  dateFormatter: dateFormatter,
                                  dayOfWeekFormatter: dayOfWeekFormatter)
                             .frame(width: geometry.size.width)
                         
-                        // Next or Previous week (based on drag direction)
                         WeekView(dates: weekDays(weekOffset: weekOffset + (dragOffset < 0 ? 1 : -1)),
                                  selectedDate: $selectedDate,
                                  dateFormatter: dateFormatter,
@@ -72,24 +66,18 @@ struct HomeView: View {
                             dragOffset = value.translation.width
                         }
                         .onEnded { value in
-                            // Check if the swipe is far enough to change the week
                             let threshold = geometry.size.width / 2
                             if value.translation.width < -threshold {
-                                // Swipe left (next week)
                                 withAnimation(.easeInOut) {
                                     weekOffset += 1
-                                    dragOffset = -geometry.size.width  // Move fully offscreen
-                                    dragOffset = 0  // Reset
+                                    dragOffset = 0
                                 }
                             } else if value.translation.width > threshold {
-                                // Swipe right (previous week)
                                 withAnimation(.easeInOut) {
                                     weekOffset -= 1
-                                    dragOffset = geometry.size.width  // Move fully offscreen
-                                    dragOffset = 0  // Reset
+                                    dragOffset = 0
                                 }
                             } else {
-                                // Not far enough, snap back
                                 withAnimation(.easeInOut) {
                                     dragOffset = 0
                                 }
@@ -97,13 +85,12 @@ struct HomeView: View {
                         }
                     )
                 }
-                .frame(height: 100)  // Adjust the height as needed for the week view
+                .frame(height: 100)
             }
             .padding(.top, 16)
             
-            // Profile Section
             HStack {
-                Image(systemName: "person.circle.fill")  // Placeholder for profile image
+                Image(systemName: "person.circle.fill")
                     .resizable()
                     .frame(width: 60, height: 60)
                     .clipShape(Circle())
@@ -113,36 +100,34 @@ struct HomeView: View {
                     .font(.title2)
                     .fontWeight(.semibold)
                     .padding(.leading, 8)
+                    .foregroundColor(.primary)
                 
                 Spacer()
             }
             .padding(.vertical, 16)
             
-            // Timer and Punch Button
             VStack {
                 ZStack {
                     Circle()
                         .trim(from: 0, to: isPunchedIn ? 1 : 0)
-                        .stroke(isPunchedIn ? Color.green : Color.gray, lineWidth: 10)
-                        .frame(width: 200, height: 200)
+                        .stroke(isPunchedIn ? Color.green : Color.gray, lineWidth: 12)
+                        .frame(width: 250, height: 250)
                         .rotationEffect(.degrees(-90))
                         .animation(.linear(duration: 1), value: isPunchedIn)
                     
                     Text(timeElapsed)
                         .font(.system(size: 48, weight: .bold))
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                 }
                 .padding()
                 
-                Button(action: {
-                    isPunchedIn.toggle()
-                }) {
+                Button(action: togglePunch) {
                     Text(isPunchedIn ? "Punch Out" : "Punch In")
                         .font(.title2)
                         .foregroundColor(.white)
                         .padding()
                         .frame(width: 200)
-                        .background(Color.green)
+                        .background(isPunchedIn ? Color.red : Color.green)
                         .cornerRadius(8)
                 }
             }
@@ -150,28 +135,51 @@ struct HomeView: View {
             
             Spacer()
         }
+        .background(Color(UIColor.systemBackground)) // Adaptive background color
     }
     
-    // Function to get the first day of the week based on the current week offset
+    // Timer toggle function
+    func togglePunch() {
+        if isPunchedIn {
+            stopTimer()
+        } else {
+            startTimer()
+        }
+        isPunchedIn.toggle()
+    }
+    
+    // Start the timer
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            secondsElapsed += 1
+            let hours = secondsElapsed / 3600
+            let minutes = (secondsElapsed % 3600) / 60
+            let seconds = secondsElapsed % 60
+            timeElapsed = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        }
+    }
+    
+    // Stop the timer
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+        secondsElapsed = 0
+        timeElapsed = "00:00:00"
+    }
+    
+    // Helper functions
     func firstDayOfTheWeek(weekOffset: Int) -> Date {
         let today = Date()
         let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: today))!
         return calendar.date(byAdding: .day, value: weekOffset * 7, to: startOfWeek)!
     }
 
-    // Function to get the dates for the current week (starting from Sunday) and offset by `weekOffset`
     func weekDays(weekOffset: Int) -> [Date] {
         let startOfWeek = firstDayOfTheWeek(weekOffset: weekOffset)
         return (0..<7).compactMap { calendar.date(byAdding: .day, value: $0, to: startOfWeek) }
     }
-    
-    // Helper function to compare two dates (ignoring time)
-    func isSameDay(date1: Date, date2: Date) -> Bool {
-        return calendar.isDate(date1, inSameDayAs: date2)
-    }
 }
 
-// Separate view for displaying each week's dates
 struct WeekView: View {
     let dates: [Date]
     @Binding var selectedDate: Date
@@ -182,25 +190,24 @@ struct WeekView: View {
         HStack(spacing: 8) {
             ForEach(dates, id: \.self) { date in
                 VStack {
-                    Text(dayOfWeekFormatter.string(from: date)) // Day of the week (e.g., "Sun")
+                    Text(dayOfWeekFormatter.string(from: date))
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                     
-                    Text(dateFormatter.string(from: date)) // Date number (e.g., "17")
+                    Text(dateFormatter.string(from: date))
                         .font(.headline)
                         .padding(10)
                         .background(isSameDay(date1: selectedDate, date2: date) ? Color.green : Color.clear)
-                        .foregroundColor(isSameDay(date1: selectedDate, date2: date) ? Color.white : (isSameDay(date1: Date(), date2: date) ? Color.green : Color.black))
+                        .foregroundColor(isSameDay(date1: selectedDate, date2: date) ? .white : (isSameDay(date1: Date(), date2: date) ? Color.green : .primary))
                         .clipShape(Circle())
                 }
                 .onTapGesture {
-                    selectedDate = date  // Update the selected date when tapped
+                    selectedDate = date
                 }
             }
         }
     }
     
-    // Helper function to compare two dates
     func isSameDay(date1: Date, date2: Date) -> Bool {
         Calendar.current.isDate(date1, inSameDayAs: date2)
     }
@@ -208,6 +215,11 @@ struct WeekView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        Group {
+            HomeView()
+                .preferredColorScheme(.light)  // Light mode preview
+            HomeView()
+                .preferredColorScheme(.dark)  // Dark mode preview
+        }
     }
 }

@@ -25,17 +25,22 @@ struct ProfileView: View {
             Text("Angelo Brown")
                 .font(.title)
                 .fontWeight(.bold)
+                .foregroundColor(.primary)
                 .padding(.top, 10)
             
             // Info Section
             VStack(alignment: .leading, spacing: 5) {
                 Text("Info")
                     .font(.headline)
+                    .foregroundColor(.primary)
                     .padding(.top, 20)
                 
                 Text("Mentor: Name")
+                    .foregroundColor(.secondary)
                 Text("Email: abrown23@msu.idserve.com")
+                    .foregroundColor(.secondary)
                 Text("Phone: 000 - 000 - 0000")
+                    .foregroundColor(.secondary)
             }
             .padding(.horizontal, 20)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -44,11 +49,15 @@ struct ProfileView: View {
             VStack(alignment: .leading, spacing: 5) {
                 Text("Support:")
                     .font(.headline)
+                    .foregroundColor(.primary)
                     .padding(.top, 20)
                 
                 Text("Academy Email: support@apple.com")
+                    .foregroundColor(.secondary)
                 Text("Ryver: @ryver-admin")
+                    .foregroundColor(.secondary)
                 Text("IT Support: IT@apple.com")
+                    .foregroundColor(.secondary)
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 20)
@@ -96,12 +105,19 @@ struct ProfileView: View {
             
             Spacer()
         }
-        .navigationBarTitle("Profile", displayMode: .inline)  // Optional navigation title
+        .padding(.horizontal)
+        .background(Color(UIColor.systemBackground)) // Adaptive background
+        .navigationBarTitle("Profile", displayMode: .inline)
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        Group {
+            ProfileView()
+                .preferredColorScheme(.light)
+            ProfileView()
+                .preferredColorScheme(.dark)
+        }
     }
 }

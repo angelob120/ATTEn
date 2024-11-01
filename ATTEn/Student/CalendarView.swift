@@ -5,10 +5,8 @@
 //  Created by AB on 11/1/24.
 //
 
-
 import SwiftUI
 
-// Main calendar view for displaying the full month
 struct CalendarView: View {
     @State private var selectedDate: Date = Date() // The current selected date, default is today
     private let calendar = Calendar.current
@@ -22,34 +20,29 @@ struct CalendarView: View {
     ]
     
     init() {
-        // Date formatter to display the day numbers
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d"
         
-        // Formatter to display the full month and year
         monthYearFormatter = DateFormatter()
         monthYearFormatter.dateFormat = "MMMM yyyy"
     }
     
     var body: some View {
         VStack(spacing: 1) {
-            // Display month and year at the top
             Text(monthYearFormatter.string(from: selectedDate))
                 .font(.title)
                 .bold()
+                .foregroundColor(.primary)
             
-            // Calendar grid for the full month
             CalendarGridView(selectedDate: $selectedDate, attendanceStatus: attendanceStatus)
             
-            // Legend for the status symbols (attendance, tardies, etc.)
             LegendView()
             
-            // Spacer between calendar and actions
             Spacer()
             
-            // Action buttons for additional functionalities
             ActionButtonView()
         }
+        .background(Color(UIColor.systemBackground)) // Adaptive background
     }
 }
 
@@ -65,20 +58,16 @@ struct CalendarGridView: View {
         let startOfMonth = getStartOfMonth(for: selectedDate)
         
         VStack {
-            // Loops through rows (weeks) and columns (days) to create the calendar grid
             ForEach(0..<6) { row in
                 HStack(spacing: 8) {
                     ForEach(0..<7) { col in
                         let day = getDayFor(row: row, column: col, daysInMonth: daysInMonth, startOfMonth: startOfMonth)
                         if day > 0 && day <= daysInMonth {
-                            // Each day cell is displayed with attendance status if available
                             DayCellView(day: day, isToday: isToday(day: day), status: attendanceStatus[day])
                                 .onTapGesture {
-                                    // Update selected date when a day is tapped
                                     selectedDate = getDateForDay(day: day, in: selectedDate)
                                 }
                         } else {
-                            // Empty space for days outside the valid range of the month
                             Spacer()
                                 .frame(width: 40, height: 40)
                         }
@@ -88,7 +77,6 @@ struct CalendarGridView: View {
         }
     }
     
-    // Helper functions for calculating the calendar layout
     func getStartOfMonth(for date: Date) -> Int {
         let firstDayOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: date))!
         return calendar.component(.weekday, from: firstDayOfMonth) - 1
@@ -123,15 +111,13 @@ struct DayCellView: View {
     
     var body: some View {
         VStack(spacing: 4) {
-            // Day number with highlight for today
             Text("\(day)")
                 .font(.headline)
                 .padding(10)
-                .background(isToday ? Color.green : Color.clear)
-                .foregroundColor(isToday ? Color.white : Color.black)
+                .background(isToday ? Color.accentColor : Color.clear) // Adaptive color for today
+                .foregroundColor(isToday ? .white : .primary)
                 .clipShape(Circle())
             
-            // Attendance status below the day number
             if let status = status {
                 AttendanceStatusView(status: status)
             } else {
@@ -143,7 +129,7 @@ struct DayCellView: View {
     }
 }
 
-// View for attendance status indicators (absent, tardy, attendance, etc.)
+// View for attendance status indicators
 struct AttendanceStatusView: View {
     let status: String
     
@@ -176,6 +162,7 @@ struct LegendView: View {
             LegendItem(image: "nosign", label: "No School")
         }
         .padding()
+        .background(Color(UIColor.secondarySystemBackground)) // Adaptive background for legend
     }
 }
 
@@ -206,9 +193,11 @@ struct LegendItem: View {
                 Image(systemName: image)
                     .resizable()
                     .frame(width: 16, height: 16)
+                    .foregroundColor(.primary)
             }
             Text(label)
                 .font(.caption)
+                .foregroundColor(.primary)
         }
     }
 }
@@ -217,40 +206,34 @@ struct LegendItem: View {
 struct ActionButtonView: View {
     var body: some View {
         VStack {
-            Button(action: {
-                // Action for fixing time
-            }) {
+            Button(action: {}) {
                 HStack {
                     Text("Fix Time")
                     Spacer()
                     Image(systemName: "chevron.right")
                 }
                 .padding()
-                .background(Color.green.opacity(0.1))
+                .background(Color(UIColor.secondarySystemBackground)) // Adaptive background for button
             }
             
-            Button(action: {
-                // Action for requesting time off
-            }) {
+            Button(action: {}) {
                 HStack {
                     Text("Request Time Off")
                     Spacer()
                     Image(systemName: "chevron.right")
                 }
                 .padding()
-                .background(Color.green.opacity(0.1))
+                .background(Color(UIColor.secondarySystemBackground)) // Adaptive background for button
             }
             
-            Button(action: {
-                // Action for detailed attendance list
-            }) {
+            Button(action: {}) {
                 HStack {
                     Text("Detailed Attendance List")
                     Spacer()
                     Image(systemName: "chevron.right")
                 }
                 .padding()
-                .background(Color.green.opacity(0.1))
+                .background(Color(UIColor.secondarySystemBackground)) // Adaptive background for button
             }
         }
         .padding()
@@ -259,6 +242,11 @@ struct ActionButtonView: View {
 
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarView()
+        Group {
+            CalendarView()
+                .preferredColorScheme(.light)
+            CalendarView()
+                .preferredColorScheme(.dark)
+        }
     }
 }
