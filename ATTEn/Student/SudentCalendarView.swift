@@ -1,5 +1,5 @@
 //
-//  CalendarView.swift
+//  SudentCalendarView.swift
 //  ATTEn
 //
 //  Created by AB on 11/1/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CalendarView: View {
+struct SudentCalendarView: View {
     @State private var selectedDate: Date = Date() // The current selected date, default is today
     private let calendar = Calendar.current
     private let dateFormatter: DateFormatter
@@ -240,12 +240,12 @@ struct ActionButtonView: View {
     }
 }
 
-struct CalendarView_Previews: PreviewProvider {
+struct SudentCalendarView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CalendarView()
+            SudentCalendarView()
                 .preferredColorScheme(.light)
-            CalendarView()
+            SudentCalendarView()
                 .preferredColorScheme(.dark)
         }
     }

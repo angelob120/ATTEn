@@ -1,5 +1,5 @@
 //
-//  ProfileView.swift
+//  StudentProfileView.swift
 //  ATTEn
 //
 //  Created by AB on 11/1/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileView: View {
+struct StudentProfileView: View {
     var body: some View {
         VStack {
             // Profile Image Section
@@ -111,12 +111,12 @@ struct ProfileView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
+struct StudentProfileView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ProfileView()
+            StudentProfileView()
                 .preferredColorScheme(.light)
-            ProfileView()
+            StudentProfileView()
                 .preferredColorScheme(.dark)
         }
     }

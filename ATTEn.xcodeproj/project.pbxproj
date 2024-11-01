@@ -15,10 +15,18 @@
 		20D853DF2CD55C2A005363AB /* ATTEnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853DE2CD55C2A005363AB /* ATTEnTests.swift */; };
 		20D853E92CD55C2A005363AB /* ATTEnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853E82CD55C2A005363AB /* ATTEnUITests.swift */; };
 		20D853EB2CD55C2A005363AB /* ATTEnUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853EA2CD55C2A005363AB /* ATTEnUITestsLaunchTests.swift */; };
-		20D853F82CD55D19005363AB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853F72CD55D19005363AB /* HomeView.swift */; };
-		20D853FA2CD55D54005363AB /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853F92CD55D54005363AB /* CalendarView.swift */; };
-		20D853FC2CD55D6A005363AB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853FB2CD55D6A005363AB /* ProfileView.swift */; };
-		20D853FE2CD55D81005363AB /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853FD2CD55D81005363AB /* EventsView.swift */; };
+		20D853F82CD55D19005363AB /* StudentHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853F72CD55D19005363AB /* StudentHomeView.swift */; };
+		20D853FA2CD55D54005363AB /* SudentCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853F92CD55D54005363AB /* SudentCalendarView.swift */; };
+		20D853FC2CD55D6A005363AB /* StudentProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853FB2CD55D6A005363AB /* StudentProfileView.swift */; };
+		20D853FE2CD55D81005363AB /* StudentEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853FD2CD55D81005363AB /* StudentEventsView.swift */; };
+		20D854032CD56643005363AB /* SwithRoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D854022CD56643005363AB /* SwithRoleView.swift */; };
+		20D8540B2CD571F0005363AB /* MentorHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D8540A2CD571F0005363AB /* MentorHomeView.swift */; };
+		20D8540D2CD57203005363AB /* MentorProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D8540C2CD57203005363AB /* MentorProfileView.swift */; };
+		20D8540F2CD57221005363AB /* MentorEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D8540E2CD57221005363AB /* MentorEventsView.swift */; };
+		20D854112CD5723D005363AB /* MentorCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D854102CD5723D005363AB /* MentorCalendarView.swift */; };
+		20D854132CD57267005363AB /* AdminHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D854122CD57267005363AB /* AdminHomeView.swift */; };
+		20D854152CD57278005363AB /* AdminProfileView(.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D854142CD57278005363AB /* AdminProfileView(.swift */; };
+		20D854172CD57286005363AB /* AdminEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D854162CD57286005363AB /* AdminEventsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +59,18 @@
 		20D853E42CD55C2A005363AB /* ATTEnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATTEnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D853E82CD55C2A005363AB /* ATTEnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTEnUITests.swift; sourceTree = "<group>"; };
 		20D853EA2CD55C2A005363AB /* ATTEnUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTEnUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		20D853F72CD55D19005363AB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		20D853F92CD55D54005363AB /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		20D853FB2CD55D6A005363AB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		20D853FD2CD55D81005363AB /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
+		20D853F72CD55D19005363AB /* StudentHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentHomeView.swift; sourceTree = "<group>"; };
+		20D853F92CD55D54005363AB /* SudentCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudentCalendarView.swift; sourceTree = "<group>"; };
+		20D853FB2CD55D6A005363AB /* StudentProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfileView.swift; sourceTree = "<group>"; };
+		20D853FD2CD55D81005363AB /* StudentEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEventsView.swift; sourceTree = "<group>"; };
+		20D854022CD56643005363AB /* SwithRoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwithRoleView.swift; sourceTree = "<group>"; };
+		20D8540A2CD571F0005363AB /* MentorHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorHomeView.swift; sourceTree = "<group>"; };
+		20D8540C2CD57203005363AB /* MentorProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorProfileView.swift; sourceTree = "<group>"; };
+		20D8540E2CD57221005363AB /* MentorEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorEventsView.swift; sourceTree = "<group>"; };
+		20D854102CD5723D005363AB /* MentorCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorCalendarView.swift; sourceTree = "<group>"; };
+		20D854122CD57267005363AB /* AdminHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeView.swift; sourceTree = "<group>"; };
+		20D854142CD57278005363AB /* AdminProfileView(.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdminProfileView(.swift"; sourceTree = "<group>"; };
+		20D854162CD57286005363AB /* AdminEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEventsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +121,11 @@
 		20D853C92CD55C29005363AB /* ATTEn */ = {
 			isa = PBXGroup;
 			children = (
+				20D854012CD56600005363AB /* Admin */,
+				20D854002CD565F6005363AB /* Mentor */,
 				20D853FF2CD55D95005363AB /* Student */,
 				20D853CA2CD55C29005363AB /* ATTEnApp.swift */,
+				20D854022CD56643005363AB /* SwithRoleView.swift */,
 				20D853CC2CD55C29005363AB /* ContentView.swift */,
 				20D853CE2CD55C29005363AB /* Item.swift */,
 				20D853D02CD55C2A005363AB /* Assets.xcassets */,
@@ -144,12 +163,33 @@
 		20D853FF2CD55D95005363AB /* Student */ = {
 			isa = PBXGroup;
 			children = (
-				20D853F72CD55D19005363AB /* HomeView.swift */,
-				20D853F92CD55D54005363AB /* CalendarView.swift */,
-				20D853FD2CD55D81005363AB /* EventsView.swift */,
-				20D853FB2CD55D6A005363AB /* ProfileView.swift */,
+				20D853F72CD55D19005363AB /* StudentHomeView.swift */,
+				20D853F92CD55D54005363AB /* SudentCalendarView.swift */,
+				20D853FD2CD55D81005363AB /* StudentEventsView.swift */,
+				20D853FB2CD55D6A005363AB /* StudentProfileView.swift */,
 			);
 			path = Student;
+			sourceTree = "<group>";
+		};
+		20D854002CD565F6005363AB /* Mentor */ = {
+			isa = PBXGroup;
+			children = (
+				20D854102CD5723D005363AB /* MentorCalendarView.swift */,
+				20D8540E2CD57221005363AB /* MentorEventsView.swift */,
+				20D8540C2CD57203005363AB /* MentorProfileView.swift */,
+				20D8540A2CD571F0005363AB /* MentorHomeView.swift */,
+			);
+			path = Mentor;
+			sourceTree = "<group>";
+		};
+		20D854012CD56600005363AB /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				20D854122CD57267005363AB /* AdminHomeView.swift */,
+				20D854142CD57278005363AB /* AdminProfileView(.swift */,
+				20D854162CD57286005363AB /* AdminEventsView.swift */,
+			);
+			path = Admin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,12 +322,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20D853FA2CD55D54005363AB /* CalendarView.swift in Sources */,
-				20D853FE2CD55D81005363AB /* EventsView.swift in Sources */,
+				20D8540F2CD57221005363AB /* MentorEventsView.swift in Sources */,
+				20D853FA2CD55D54005363AB /* SudentCalendarView.swift in Sources */,
+				20D853FE2CD55D81005363AB /* StudentEventsView.swift in Sources */,
+				20D854032CD56643005363AB /* SwithRoleView.swift in Sources */,
 				20D853CD2CD55C29005363AB /* ContentView.swift in Sources */,
+				20D854112CD5723D005363AB /* MentorCalendarView.swift in Sources */,
 				20D853CF2CD55C29005363AB /* Item.swift in Sources */,
-				20D853F82CD55D19005363AB /* HomeView.swift in Sources */,
-				20D853FC2CD55D6A005363AB /* ProfileView.swift in Sources */,
+				20D854132CD57267005363AB /* AdminHomeView.swift in Sources */,
+				20D854172CD57286005363AB /* AdminEventsView.swift in Sources */,
+				20D8540B2CD571F0005363AB /* MentorHomeView.swift in Sources */,
+				20D853F82CD55D19005363AB /* StudentHomeView.swift in Sources */,
+				20D853FC2CD55D6A005363AB /* StudentProfileView.swift in Sources */,
+				20D854152CD57278005363AB /* AdminProfileView(.swift in Sources */,
+				20D8540D2CD57203005363AB /* MentorProfileView.swift in Sources */,
 				20D853CB2CD55C29005363AB /* ATTEnApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

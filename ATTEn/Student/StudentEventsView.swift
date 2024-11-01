@@ -1,12 +1,12 @@
 //
-//  EventsView.swift
+//  StudentEventsView.swift
 //  ATTEn
 //
 //  Created by AB on 11/1/24.
 //
 import SwiftUI
 
-struct EventsView: View {
+struct StudentEventsView: View {
     var events = Array(repeating: Event(date: "SEP:3", day: "WENS", title: "Event 1:", subtitle: "Networking Event"), count: 7)
     
     var body: some View {
@@ -120,12 +120,12 @@ struct EventRow: View {
     }
 }
 
-struct EventsView_Previews: PreviewProvider {
+struct StudentEventsView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            EventsView()
+            StudentEventsView()
                 .preferredColorScheme(.light)
-            EventsView()
+            StudentEventsView()
                 .preferredColorScheme(.dark)
         }
     }
