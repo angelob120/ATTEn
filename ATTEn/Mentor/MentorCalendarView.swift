@@ -29,11 +29,36 @@ struct MentorCalendarView: View {
     
     var body: some View {
         VStack(spacing: 1) {
-            Text(monthYearFormatter.string(from: selectedDate))
-                .font(.title)
-                .bold()
-                .foregroundColor(.primary) // Adapts to light/dark mode
+            HStack {
+                // Button to go to the previous month
+                Button(action: {
+                    selectedDate = calendar.date(byAdding: .month, value: -1, to: selectedDate) ?? selectedDate
+                }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.blue)
+                }
+                
+                Spacer()
+                
+                // Current month and year display
+                Text(monthYearFormatter.string(from: selectedDate))
+                    .font(.title)
+                    .bold()
+                    .foregroundColor(.primary)
+                
+                Spacer()
+                
+                // Button to go to the next month
+                Button(action: {
+                    selectedDate = calendar.date(byAdding: .month, value: 1, to: selectedDate) ?? selectedDate
+                }) {
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(.blue)
+                }
+            }
+            .padding(.horizontal)
             
+            // Calendar grid view for selected month
             MentorCalendarGridView(selectedDate: $selectedDate, statusData: mentorStatus)
             
             MentorLegendView()
@@ -46,6 +71,7 @@ struct MentorCalendarView: View {
         .background(Color(UIColor.systemBackground)) // Background color that adapts to the system’s theme
     }
 }
+
 
 // Calendar grid showing days of the month
 struct MentorCalendarGridView: View {

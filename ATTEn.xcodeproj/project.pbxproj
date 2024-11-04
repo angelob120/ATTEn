@@ -14,6 +14,8 @@
 		200BC1852CD8FF88004C9FD8 /* CreateEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC1842CD8FF88004C9FD8 /* CreateEventView.swift */; };
 		200BC1872CD8FF92004C9FD8 /* NotificationToStudentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC1862CD8FF92004C9FD8 /* NotificationToStudentsView.swift */; };
 		200BC1892CD8FFA1004C9FD8 /* NotificationToMentorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC1882CD8FFA1004C9FD8 /* NotificationToMentorsView.swift */; };
+		200BC18B2CD90860004C9FD8 /* MentorStudentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC18A2CD90860004C9FD8 /* MentorStudentDetailView.swift */; };
+		200BC18D2CD90F60004C9FD8 /* MentorEventDetailVie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC18C2CD90F60004C9FD8 /* MentorEventDetailVie.swift */; };
 		2024C2FF2CD5D56F00704605 /* StudentFixTimeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C2FE2CD5D56F00704605 /* StudentFixTimeSheetView.swift */; };
 		2024C3012CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C3002CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift */; };
 		2024C3032CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C3022CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift */; };
@@ -67,6 +69,8 @@
 		200BC1842CD8FF88004C9FD8 /* CreateEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventView.swift; sourceTree = "<group>"; };
 		200BC1862CD8FF92004C9FD8 /* NotificationToStudentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationToStudentsView.swift; sourceTree = "<group>"; };
 		200BC1882CD8FFA1004C9FD8 /* NotificationToMentorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationToMentorsView.swift; sourceTree = "<group>"; };
+		200BC18A2CD90860004C9FD8 /* MentorStudentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorStudentDetailView.swift; sourceTree = "<group>"; };
+		200BC18C2CD90F60004C9FD8 /* MentorEventDetailVie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorEventDetailVie.swift; sourceTree = "<group>"; };
 		2024C2FE2CD5D56F00704605 /* StudentFixTimeSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentFixTimeSheetView.swift; sourceTree = "<group>"; };
 		2024C3002CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRequestTimeOffSheetView.swift; sourceTree = "<group>"; };
 		2024C3022CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailedAttendanceListSheetView.swift; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 				20D8540E2CD57221005363AB /* MentorEventsView.swift */,
 				20D8540C2CD57203005363AB /* MentorProfileView.swift */,
 				20D8540A2CD571F0005363AB /* MentorHomeView.swift */,
+				200BC18A2CD90860004C9FD8 /* MentorStudentDetailView.swift */,
+				200BC18C2CD90F60004C9FD8 /* MentorEventDetailVie.swift */,
 			);
 			path = Mentor;
 			sourceTree = "<group>";
@@ -403,6 +409,7 @@
 				2024C3012CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift in Sources */,
 				20D8540B2CD571F0005363AB /* MentorHomeView.swift in Sources */,
 				20D853F82CD55D19005363AB /* StudentHomeView.swift in Sources */,
+				200BC18B2CD90860004C9FD8 /* MentorStudentDetailView.swift in Sources */,
 				2024C2FF2CD5D56F00704605 /* StudentFixTimeSheetView.swift in Sources */,
 				200BC1872CD8FF92004C9FD8 /* NotificationToStudentsView.swift in Sources */,
 				20D853FC2CD55D6A005363AB /* StudentProfileView.swift in Sources */,
@@ -413,6 +420,7 @@
 				2024C3092CD5D7D700704605 /* MentorRequestTimeOffSheetView.swift in Sources */,
 				2024C3032CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift in Sources */,
 				200BC1812CD8FCBB004C9FD8 /* StudentDetailView.swift in Sources */,
+				200BC18D2CD90F60004C9FD8 /* MentorEventDetailVie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

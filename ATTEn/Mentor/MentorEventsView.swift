@@ -10,6 +10,8 @@ import SwiftUI
 struct MentorEventsView: View {
     var events = Array(repeating: MentorEvent(date: "SEP:3", day: "WENS", title: "Session 1:", subtitle: "Mentor Session"), count: 7)
     
+    @State private var selectedEvent: MentorEvent? = nil
+    
     var body: some View {
         VStack(alignment: .leading) {
             // Title
@@ -48,7 +50,10 @@ struct MentorEventsView: View {
             ScrollView {
                 VStack(spacing: 10) {
                     ForEach(events.indices, id: \.self) { index in
-                        MentorEventRow(event: events[index], isHighlighted: index == 0) // Highlight the first event
+                        MentorEventRow(event: events[index], isHighlighted: index == 0)
+                            .onTapGesture {
+                                selectedEvent = events[index]
+                            }
                     }
                 }
                 .padding(.horizontal, 19)
@@ -59,6 +64,9 @@ struct MentorEventsView: View {
         }
         .background(Color(UIColor.systemBackground)) // Adaptive background color
         .navigationBarTitle("Events", displayMode: .inline)
+        .sheet(item: $selectedEvent) { event in
+            MentorEventDetailView(event: event)
+        }
     }
 }
 
@@ -70,13 +78,13 @@ struct MentorEvent: Identifiable {
     var subtitle: String
 }
 
+// Updated MentorEventRow to trigger the sheet presentation
 struct MentorEventRow: View {
     let event: MentorEvent
     let isHighlighted: Bool
     
     var body: some View {
         HStack {
-            // Date and Day
             VStack(alignment: .leading) {
                 Text(event.date)
                     .font(.headline)
@@ -91,7 +99,6 @@ struct MentorEventRow: View {
             
             Spacer()
             
-            // Event Title and Subtitle
             VStack(alignment: .leading) {
                 Text(event.title)
                     .font(.headline)
@@ -109,9 +116,8 @@ struct MentorEventRow: View {
             
             Spacer()
             
-            // Options Button
             Button(action: {
-                // Action for more options
+                // Placeholder for options button
             }) {
                 Image(systemName: "ellipsis")
                     .foregroundColor(isHighlighted ? .white : .secondary)

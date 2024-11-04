@@ -4,97 +4,84 @@
 //
 //  Created by AB on 11/1/24.
 //
-
 import SwiftUI
 
 struct MentorProfileView: View {
+    // Sample data for students
+    let students = Array(1...20).map { "Student \($0)" }
+    
     var body: some View {
-        VStack {
-            // Profile Image Section
-            Image("profile_image") // Replace with your image asset
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 150, height: 150)
-                .clipShape(Circle())
-                .overlay(
-                    Circle().stroke(Color.blue, lineWidth: 4)
-                )
-                .padding(.top, 20)
-            
-            // Name Section
-            Text("Angelo Brown")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.top, 10)
-            
-            // Mentor Information Section
-            VStack(alignment: .leading, spacing: 5) {
-                Text("Mentor Information")
-                    .font(.headline)
-                    .padding(.top, 20)
-                
-                Text("Role: Mentor")
-                Text("Email: abrown23@msu.idserve.com")
-                Text("Phone: 000 - 000 - 0000")
-            }
-            .padding(.horizontal, 20)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            
-            // Support Section
-            VStack(alignment: .leading, spacing: 5) {
-                Text("Support Contacts:")
-                    .font(.headline)
-                    .padding(.top, 20)
-                
-                Text("Academy Support: support@academy.com")
-                Text("Mentor Support: mentor@support.com")
-                Text("IT Support: it@support.com")
-            }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 20)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            
-            Spacer()
-            
-            // Action Buttons
-            VStack(spacing: 10) {
-                Button(action: {
-                    // Action for scheduling a session
-                }) {
-                    HStack {
-                        Text("Schedule a Session")
-                            .foregroundColor(.white)
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.white)
+        NavigationView {
+            ScrollView {
+                VStack {
+                    // Profile Image Section
+                    Image("profile_image") // Replace with your image asset
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 150, height: 150)
+                        .clipShape(Circle())
+                        .overlay(
+                            Circle().stroke(Color.blue, lineWidth: 4)
+                        )
+                        .padding(.top, 20)
+                    
+                    // Name Section
+                    Text("Angelo Brown")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding(.top, 10)
+                    
+                    // Mentor Information Section
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("Mentor Information")
+                            .font(.headline)
+                            .padding(.top, 20)
+                        
+                        Text("Role: Mentor")
+                        Text("Email: abrown23@msu.idserve.com")
+                        Text("Phone: 000 - 000 - 0000")
                     }
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(8)
-                }
-                .padding(.horizontal)
-                
-                Button(action: {
-                    // Action for viewing mentor dashboard
-                }) {
-                    HStack {
-                        Text("View Mentor Dashboard")
-                            .foregroundColor(.white)
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.white)
+                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    // List of Students
+                    Text("Students")
+                        .font(.headline)
+                        .padding(.top, 20)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 20)
+                    
+                    LazyVStack(alignment: .leading) {
+                        ForEach(students, id: \.self) { student in
+                            NavigationLink(destination: MentorStudentDetailView(name: student, progress: "80%")) {
+                                HStack {
+                                    Image(systemName: "person.crop.circle.fill")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 50, height: 50)
+                                        .clipShape(Circle())
+                                    
+                                    VStack(alignment: .leading) {
+                                        Text(student)
+                                            .font(.headline)
+                                            .foregroundColor(Color.primary)
+                                        
+                                        Text("Progress: 80%")
+                                            .font(.subheadline)
+                                            .foregroundColor(.blue)
+                                    }
+                                }
+                                .padding(.vertical, 10)
+                            }
+                        }
                     }
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(8)
+                    .padding(.horizontal, 20)
+                    
+                    Spacer()
                 }
-                .padding(.horizontal)
-                .padding(.bottom, 20)
             }
-            
-            Spacer()
+            .navigationBarTitle("Mentor Profile", displayMode: .inline)
         }
-        .navigationBarTitle("Mentor Profile", displayMode: .inline)
     }
 }
 
