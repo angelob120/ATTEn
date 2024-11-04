@@ -4,7 +4,6 @@
 //
 //  Created by AB on 11/1/24.
 //
-
 import SwiftUI
 
 struct MentorEventsView: View {
@@ -78,7 +77,7 @@ struct MentorEvent: Identifiable {
     var subtitle: String
 }
 
-// Updated MentorEventRow to trigger the sheet presentation
+// Updated MentorEventRow without the ellipsis button
 struct MentorEventRow: View {
     let event: MentorEvent
     let isHighlighted: Bool
@@ -115,13 +114,6 @@ struct MentorEventRow: View {
             .cornerRadius(12)
             
             Spacer()
-            
-            Button(action: {
-                // Placeholder for options button
-            }) {
-                Image(systemName: "ellipsis")
-                    .foregroundColor(isHighlighted ? .white : .secondary)
-            }
         }
         .padding(.vertical, 5)
     }
