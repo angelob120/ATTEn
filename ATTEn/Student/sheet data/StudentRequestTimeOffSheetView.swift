@@ -23,6 +23,6 @@ struct StudentRequestTimeOffSheetView: View {
 
 struct StudentRequestTimeOffSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        RequestTimeOffSheetView()
+        StudentRequestTimeOffSheetView()
     }
 }

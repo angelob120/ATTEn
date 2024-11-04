@@ -37,7 +37,7 @@ struct StudentHomeView: View {
             // Week Calendar View
             VStack {
                 HStack {
-                    Text(monthFormatter.string(from: firstDayOfTheWeek(weekOffset: weekOffset)))
+                    Text(monthFormatter.string(from: selectedDate)) // Dynamically shows the current month
                         .font(.title2)
                         .bold()
                         .padding(.leading, 16)

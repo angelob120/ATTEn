@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailedAttendanceListSheetView: View {
+struct StudentDetailedAttendanceListSheetView: View {
     var body: some View {
         VStack {
             Text("Detailed Attendance List")
@@ -21,8 +21,8 @@ struct DetailedAttendanceListSheetView: View {
     }
 }
 
-struct DetailedAttendanceListSheetView_Previews: PreviewProvider {
+struct StudentDetailedAttendanceListSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedAttendanceListSheetView()
+        StudentDetailedAttendanceListSheetView()
     }
 }

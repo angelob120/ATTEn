@@ -32,6 +32,7 @@ struct MentorCalendarView: View {
             Text(monthYearFormatter.string(from: selectedDate))
                 .font(.title)
                 .bold()
+                .foregroundColor(.primary) // Adapts to light/dark mode
             
             MentorCalendarGridView(selectedDate: $selectedDate, statusData: mentorStatus)
             
@@ -42,6 +43,7 @@ struct MentorCalendarView: View {
             MentorActionButtonView()
         }
         .padding()
+        .background(Color(UIColor.systemBackground)) // Background color that adapts to the system’s theme
     }
 }
 
@@ -114,7 +116,7 @@ struct MentorDayCellView: View {
                 .font(.headline)
                 .padding(10)
                 .background(isToday ? Color.blue : Color.clear)
-                .foregroundColor(isToday ? Color.white : Color.black)
+                .foregroundColor(isToday ? .white : .primary) // Primary color adapts to light/dark mode
                 .clipShape(Circle())
             
             if let status = status {
@@ -144,7 +146,7 @@ struct MentorStatusView: View {
             Image(systemName: "nosign")
                 .resizable()
                 .frame(width: 10, height: 10)
-                .foregroundColor(.gray)
+                .foregroundColor(.secondary) // Secondary color adapts to light/dark mode
         default:
             EmptyView()
         }
@@ -191,59 +193,82 @@ struct MentorLegendItem: View {
                 Image(systemName: image)
                     .resizable()
                     .frame(width: 16, height: 16)
+                    .foregroundColor(.secondary) // Secondary color adapts to light/dark mode
             }
             Text(label)
                 .font(.caption)
+                .foregroundColor(.primary) // Primary color adapts to light/dark mode
         }
     }
 }
 
 // Bottom action buttons for mentor-specific options
 struct MentorActionButtonView: View {
+    @State private var showMentorFixTimeSheet = false
+    @State private var showMentorRequestTimeOffSheet = false
+    @State private var showMentorDetailedAttendanceListSheet = false
+    
     var body: some View {
-        VStack {
+        VStack(spacing: 4) {
             Button(action: {
-                // Action for checking in
+                showMentorFixTimeSheet = true
             }) {
                 HStack {
-                    Text("Check In")
+                    Text("Fix Time")
                     Spacer()
                     Image(systemName: "chevron.right")
                 }
                 .padding()
                 .background(Color.blue.opacity(0.1))
+                .cornerRadius(8)
+            }
+            .sheet(isPresented: $showMentorFixTimeSheet) {
+                MentorFixTimeSheetView()
             }
             
             Button(action: {
-                // Action for reporting availability
+                showMentorRequestTimeOffSheet = true
             }) {
                 HStack {
-                    Text("Report Availability")
+                    Text("Request Time Off")
                     Spacer()
                     Image(systemName: "chevron.right")
                 }
                 .padding()
                 .background(Color.blue.opacity(0.1))
+                .cornerRadius(8)
+            }
+            .sheet(isPresented: $showMentorRequestTimeOffSheet) {
+                MentorRequestTimeOffSheetView()
             }
             
             Button(action: {
-                // Action for viewing sessions
+                showMentorDetailedAttendanceListSheet = true
             }) {
                 HStack {
-                    Text("View Sessions")
+                    Text("Detailed Attendance List")
                     Spacer()
                     Image(systemName: "chevron.right")
                 }
                 .padding()
                 .background(Color.blue.opacity(0.1))
+                .cornerRadius(8)
+            }
+            .sheet(isPresented: $showMentorDetailedAttendanceListSheet) {
+                MentorDetailedAttendanceListSheetView()
             }
         }
-        .padding()
+        .padding(.top, 8)
     }
 }
 
 struct MentorCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        MentorCalendarView()
+        Group {
+            MentorCalendarView()
+                .preferredColorScheme(.light)
+            MentorCalendarView()
+                .preferredColorScheme(.dark)
+        }
     }
 }

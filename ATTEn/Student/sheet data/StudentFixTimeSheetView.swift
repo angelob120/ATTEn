@@ -23,6 +23,6 @@ struct StudentFixTimeSheetView: View {
 
 struct StudentFixTimeSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        FixTimeSheetView()
+        StudentFixTimeSheetView()
     }
 }

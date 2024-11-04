@@ -4,16 +4,14 @@
 //
 //  Created by AB on 11/1/24.
 //
-
 import SwiftUI
 
 struct AdminEventsView: View {
-    @State private var selectedDate: Date = Date() // The current selected date, default is today
+    @State private var selectedDate: Date = Date()
     private let calendar = Calendar.current
     private let dateFormatter: DateFormatter
     private let monthYearFormatter: DateFormatter
     
-    // Sample legend data for different types of attendance
     let attendanceStatus: [Int: String] = [
         1: "Attendance", 2: "Attendance", 3: "Attendance", 4: "Tardy", 5: "NoSchool", 7: "Absent", 8: "Attendance",
         9: "Tardy", 10: "Attendance", 12: "NoSchool", 13: "NoSchool", 20: "NoSchool"
@@ -29,9 +27,26 @@ struct AdminEventsView: View {
     
     var body: some View {
         VStack(spacing: 1) {
-            Text(monthYearFormatter.string(from: selectedDate))
-                .font(.title)
-                .bold()
+            HStack {
+                Button(action: {
+                    selectedDate = calendar.date(byAdding: .month, value: -1, to: selectedDate) ?? selectedDate
+                }) {
+                    Image(systemName: "chevron.left")
+                        .padding()
+                }
+                
+                Text(monthYearFormatter.string(from: selectedDate))
+                    .font(.title)
+                    .bold()
+                    .foregroundColor(.primary)
+                
+                Button(action: {
+                    selectedDate = calendar.date(byAdding: .month, value: 1, to: selectedDate) ?? selectedDate
+                }) {
+                    Image(systemName: "chevron.right")
+                        .padding()
+                }
+            }
             
             AdminCalendarGridView(selectedDate: $selectedDate, attendanceStatus: attendanceStatus)
             
@@ -42,10 +57,10 @@ struct AdminEventsView: View {
             AdminActionButtonView()
         }
         .padding()
+        .background(Color(UIColor.systemBackground)) // Adapts background to light/dark mode
     }
 }
 
-// Calendar grid showing days of the month
 struct AdminCalendarGridView: View {
     @Binding var selectedDate: Date
     let attendanceStatus: [Int: String]
@@ -102,7 +117,7 @@ struct AdminCalendarGridView: View {
     }
 }
 
-// View for each day cell in the calendar grid
+
 struct AdminDayCellView: View {
     let day: Int
     let isToday: Bool
@@ -114,7 +129,7 @@ struct AdminDayCellView: View {
                 .font(.headline)
                 .padding(10)
                 .background(isToday ? Color.green : Color.clear)
-                .foregroundColor(isToday ? Color.white : Color.black)
+                .foregroundColor(isToday ? .white : .primary)
                 .clipShape(Circle())
             
             if let status = status {
@@ -128,7 +143,6 @@ struct AdminDayCellView: View {
     }
 }
 
-// View for attendance status indicators (absent, tardy, attendance, etc.)
 struct AdminAttendanceStatusView: View {
     let status: String
     
@@ -151,20 +165,19 @@ struct AdminAttendanceStatusView: View {
     }
 }
 
-// Legend view for attendance status indicators
 struct AdminLegendView: View {
     var body: some View {
         HStack(spacing: 16) {
             AdminLegendItem(color: .red, label: "Absences")
             AdminLegendItem(color: .yellow, label: "Tardies")
             AdminLegendItem(color: .green, label: "Attendances")
-            AdminLegendItem(image: "nosign", label: "No School")
         }
         .padding()
+        .background(Color(UIColor.secondarySystemBackground)) // Adapts to light/dark mode
+        .cornerRadius(8)
     }
 }
 
-// Single legend item with color or image and label
 struct AdminLegendItem: View {
     let color: Color?
     let image: String?
@@ -191,51 +204,68 @@ struct AdminLegendItem: View {
                 Image(systemName: image)
                     .resizable()
                     .frame(width: 16, height: 16)
+                    .foregroundColor(.primary)
             }
             Text(label)
                 .font(.caption)
+                .foregroundColor(.primary)
         }
     }
 }
 
-// Bottom action buttons for Fix Time, Request Time Off, and Detailed Attendance List
 struct AdminActionButtonView: View {
+    @State private var showCreateEvent = false
+    @State private var showNotificationToStudents = false
+    @State private var showNotificationToMentors = false
+
     var body: some View {
         VStack {
             Button(action: {
-                // Action for fixing time
+                showCreateEvent = true
             }) {
                 HStack {
-                    Text("Fix Time")
+                    Text("Create Event")
                     Spacer()
                     Image(systemName: "chevron.right")
                 }
                 .padding()
-                .background(Color.green.opacity(0.1))
+                .background(Color(UIColor.secondarySystemBackground))
+                .cornerRadius(8)
+            }
+            .sheet(isPresented: $showCreateEvent) {
+                CreateEventView()
             }
             
             Button(action: {
-                // Action for requesting time off
+                showNotificationToStudents = true
             }) {
                 HStack {
-                    Text("Request Time Off")
+                    Text("Send Out Notification to Students")
                     Spacer()
                     Image(systemName: "chevron.right")
                 }
                 .padding()
-                .background(Color.green.opacity(0.1))
+                .background(Color(UIColor.secondarySystemBackground))
+                .cornerRadius(8)
+            }
+            .sheet(isPresented: $showNotificationToStudents) {
+                NotificationToStudentsView()
             }
             
             Button(action: {
-                // Action for detailed attendance list
+                showNotificationToMentors = true
             }) {
                 HStack {
-                    Text("Detailed Attendance List")
+                    Text("Send Out Notification to Mentors")
                     Spacer()
                     Image(systemName: "chevron.right")
                 }
                 .padding()
-                .background(Color.green.opacity(0.1))
+                .background(Color(UIColor.secondarySystemBackground))
+                .cornerRadius(8)
+            }
+            .sheet(isPresented: $showNotificationToMentors) {
+                NotificationToMentorsView()
             }
         }
         .padding()
@@ -244,6 +274,11 @@ struct AdminActionButtonView: View {
 
 struct AdminEventsView_Previews: PreviewProvider {
     static var previews: some View {
-        AdminEventsView()
+        Group {
+            AdminEventsView()
+                .preferredColorScheme(.light)
+            AdminEventsView()
+                .preferredColorScheme(.dark)
+        }
     }
 }

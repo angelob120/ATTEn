@@ -96,7 +96,7 @@ struct StudentTabView: View {
                     Text("Home")
                 }
             
-            SudentCalendarView()
+            SimpleCalendarView()
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("Calendar")

@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200BC17D2CD8FB60004C9FD8 /* StudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC17C2CD8FB60004C9FD8 /* StudentListView.swift */; };
+		200BC17F2CD8FB78004C9FD8 /* MentorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC17E2CD8FB78004C9FD8 /* MentorListView.swift */; };
+		200BC1812CD8FCBB004C9FD8 /* StudentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC1802CD8FCBB004C9FD8 /* StudentDetailView.swift */; };
+		200BC1832CD8FCC7004C9FD8 /* MentorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC1822CD8FCC7004C9FD8 /* MentorDetailView.swift */; };
+		200BC1852CD8FF88004C9FD8 /* CreateEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC1842CD8FF88004C9FD8 /* CreateEventView.swift */; };
+		200BC1872CD8FF92004C9FD8 /* NotificationToStudentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC1862CD8FF92004C9FD8 /* NotificationToStudentsView.swift */; };
+		200BC1892CD8FFA1004C9FD8 /* NotificationToMentorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC1882CD8FFA1004C9FD8 /* NotificationToMentorsView.swift */; };
+		2024C2FF2CD5D56F00704605 /* StudentFixTimeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C2FE2CD5D56F00704605 /* StudentFixTimeSheetView.swift */; };
+		2024C3012CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C3002CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift */; };
+		2024C3032CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C3022CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift */; };
+		2024C3072CD5D7CD00704605 /* MentorFixTimeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C3062CD5D7CD00704605 /* MentorFixTimeSheetView.swift */; };
+		2024C3092CD5D7D700704605 /* MentorRequestTimeOffSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C3082CD5D7D700704605 /* MentorRequestTimeOffSheetView.swift */; };
+		2024C30B2CD5D7E100704605 /* MentorDetailedAttendanceListSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C30A2CD5D7E100704605 /* MentorDetailedAttendanceListSheetView.swift */; };
 		20D853CB2CD55C29005363AB /* ATTEnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853CA2CD55C29005363AB /* ATTEnApp.swift */; };
 		20D853CD2CD55C29005363AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853CC2CD55C29005363AB /* ContentView.swift */; };
 		20D853CF2CD55C29005363AB /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853CE2CD55C29005363AB /* Item.swift */; };
@@ -47,6 +60,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		200BC17C2CD8FB60004C9FD8 /* StudentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListView.swift; sourceTree = "<group>"; };
+		200BC17E2CD8FB78004C9FD8 /* MentorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListView.swift; sourceTree = "<group>"; };
+		200BC1802CD8FCBB004C9FD8 /* StudentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailView.swift; sourceTree = "<group>"; };
+		200BC1822CD8FCC7004C9FD8 /* MentorDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorDetailView.swift; sourceTree = "<group>"; };
+		200BC1842CD8FF88004C9FD8 /* CreateEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventView.swift; sourceTree = "<group>"; };
+		200BC1862CD8FF92004C9FD8 /* NotificationToStudentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationToStudentsView.swift; sourceTree = "<group>"; };
+		200BC1882CD8FFA1004C9FD8 /* NotificationToMentorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationToMentorsView.swift; sourceTree = "<group>"; };
+		2024C2FE2CD5D56F00704605 /* StudentFixTimeSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentFixTimeSheetView.swift; sourceTree = "<group>"; };
+		2024C3002CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRequestTimeOffSheetView.swift; sourceTree = "<group>"; };
+		2024C3022CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailedAttendanceListSheetView.swift; sourceTree = "<group>"; };
+		2024C3062CD5D7CD00704605 /* MentorFixTimeSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorFixTimeSheetView.swift; sourceTree = "<group>"; };
+		2024C3082CD5D7D700704605 /* MentorRequestTimeOffSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorRequestTimeOffSheetView.swift; sourceTree = "<group>"; };
+		2024C30A2CD5D7E100704605 /* MentorDetailedAttendanceListSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorDetailedAttendanceListSheetView.swift; sourceTree = "<group>"; };
 		20D853C72CD55C29005363AB /* ATTEn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATTEn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D853CA2CD55C29005363AB /* ATTEnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTEnApp.swift; sourceTree = "<group>"; };
 		20D853CC2CD55C29005363AB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +124,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2024C3042CD5D59200704605 /* sheet data */ = {
+			isa = PBXGroup;
+			children = (
+				2024C3022CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift */,
+				2024C3002CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift */,
+				2024C2FE2CD5D56F00704605 /* StudentFixTimeSheetView.swift */,
+			);
+			path = "sheet data";
+			sourceTree = "<group>";
+		};
+		2024C3052CD5D72000704605 /* sheet data */ = {
+			isa = PBXGroup;
+			children = (
+				2024C3062CD5D7CD00704605 /* MentorFixTimeSheetView.swift */,
+				2024C3082CD5D7D700704605 /* MentorRequestTimeOffSheetView.swift */,
+				2024C30A2CD5D7E100704605 /* MentorDetailedAttendanceListSheetView.swift */,
+			);
+			path = "sheet data";
+			sourceTree = "<group>";
+		};
 		20D853BE2CD55C29005363AB = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +172,7 @@
 				20D853FF2CD55D95005363AB /* Student */,
 				20D853CA2CD55C29005363AB /* ATTEnApp.swift */,
 				20D854022CD56643005363AB /* SwithRoleView.swift */,
+				20D854182CD57D0D005363AB /* New Group */,
 				20D853CC2CD55C29005363AB /* ContentView.swift */,
 				20D853CE2CD55C29005363AB /* Item.swift */,
 				20D853D02CD55C2A005363AB /* Assets.xcassets */,
@@ -163,6 +210,7 @@
 		20D853FF2CD55D95005363AB /* Student */ = {
 			isa = PBXGroup;
 			children = (
+				2024C3042CD5D59200704605 /* sheet data */,
 				20D853F72CD55D19005363AB /* StudentHomeView.swift */,
 				20D853F92CD55D54005363AB /* SudentCalendarView.swift */,
 				20D853FD2CD55D81005363AB /* StudentEventsView.swift */,
@@ -174,6 +222,7 @@
 		20D854002CD565F6005363AB /* Mentor */ = {
 			isa = PBXGroup;
 			children = (
+				2024C3052CD5D72000704605 /* sheet data */,
 				20D854102CD5723D005363AB /* MentorCalendarView.swift */,
 				20D8540E2CD57221005363AB /* MentorEventsView.swift */,
 				20D8540C2CD57203005363AB /* MentorProfileView.swift */,
@@ -188,8 +237,22 @@
 				20D854122CD57267005363AB /* AdminHomeView.swift */,
 				20D854142CD57278005363AB /* AdminProfileView(.swift */,
 				20D854162CD57286005363AB /* AdminEventsView.swift */,
+				200BC17C2CD8FB60004C9FD8 /* StudentListView.swift */,
+				200BC17E2CD8FB78004C9FD8 /* MentorListView.swift */,
+				200BC1802CD8FCBB004C9FD8 /* StudentDetailView.swift */,
+				200BC1822CD8FCC7004C9FD8 /* MentorDetailView.swift */,
+				200BC1842CD8FF88004C9FD8 /* CreateEventView.swift */,
+				200BC1862CD8FF92004C9FD8 /* NotificationToStudentsView.swift */,
+				200BC1882CD8FFA1004C9FD8 /* NotificationToMentorsView.swift */,
 			);
 			path = Admin;
+			sourceTree = "<group>";
+		};
+		20D854182CD57D0D005363AB /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,17 +389,30 @@
 				20D853FA2CD55D54005363AB /* SudentCalendarView.swift in Sources */,
 				20D853FE2CD55D81005363AB /* StudentEventsView.swift in Sources */,
 				20D854032CD56643005363AB /* SwithRoleView.swift in Sources */,
+				2024C3072CD5D7CD00704605 /* MentorFixTimeSheetView.swift in Sources */,
 				20D853CD2CD55C29005363AB /* ContentView.swift in Sources */,
+				200BC17D2CD8FB60004C9FD8 /* StudentListView.swift in Sources */,
+				200BC1832CD8FCC7004C9FD8 /* MentorDetailView.swift in Sources */,
 				20D854112CD5723D005363AB /* MentorCalendarView.swift in Sources */,
 				20D853CF2CD55C29005363AB /* Item.swift in Sources */,
 				20D854132CD57267005363AB /* AdminHomeView.swift in Sources */,
+				200BC1892CD8FFA1004C9FD8 /* NotificationToMentorsView.swift in Sources */,
 				20D854172CD57286005363AB /* AdminEventsView.swift in Sources */,
+				2024C30B2CD5D7E100704605 /* MentorDetailedAttendanceListSheetView.swift in Sources */,
+				200BC17F2CD8FB78004C9FD8 /* MentorListView.swift in Sources */,
+				2024C3012CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift in Sources */,
 				20D8540B2CD571F0005363AB /* MentorHomeView.swift in Sources */,
 				20D853F82CD55D19005363AB /* StudentHomeView.swift in Sources */,
+				2024C2FF2CD5D56F00704605 /* StudentFixTimeSheetView.swift in Sources */,
+				200BC1872CD8FF92004C9FD8 /* NotificationToStudentsView.swift in Sources */,
 				20D853FC2CD55D6A005363AB /* StudentProfileView.swift in Sources */,
+				200BC1852CD8FF88004C9FD8 /* CreateEventView.swift in Sources */,
 				20D854152CD57278005363AB /* AdminProfileView(.swift in Sources */,
 				20D8540D2CD57203005363AB /* MentorProfileView.swift in Sources */,
 				20D853CB2CD55C29005363AB /* ATTEnApp.swift in Sources */,
+				2024C3092CD5D7D700704605 /* MentorRequestTimeOffSheetView.swift in Sources */,
+				2024C3032CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift in Sources */,
+				200BC1812CD8FCBB004C9FD8 /* StudentDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

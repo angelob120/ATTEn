@@ -4,10 +4,11 @@
 //
 //  Created by AB on 11/1/24.
 //
-
 import SwiftUI
 
 struct AdminHomeView: View {
+    @State private var showStudentList = true
+    
     var body: some View {
         VStack {
             // Search Bar
@@ -15,68 +16,54 @@ struct AdminHomeView: View {
                 TextField("Search", text: .constant(""))
                     .padding(.leading, 10)
                     .frame(height: 40)
-                    .background(Color(.systemGray6))
+                    .background(Color(.systemGray5))
                     .cornerRadius(10)
+                    .foregroundColor(Color.primary)
             }
             .padding()
-
-            // List of Profiles
-            List(0..<5) { _ in
-                HStack {
-                    // Circular Image
-                    Image(systemName: "person.crop.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
-                    
-                    Spacer()
-                    
-                    // Name and Completion Percentage
-                    VStack(alignment: .leading) {
-                        Text("Angelo Brown")
-                            .font(.headline)
-                        
-                        Text("90%")
-                            .font(.headline)
-                            .foregroundColor(.green)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .padding(.vertical, 10)
+            
+            // Conditional list based on selection
+            if showStudentList {
+                StudentListView()
+            } else {
+                MentorListView()
             }
-
+            
             // Role-Specific Options
             HStack {
                 Button(action: {
-                    // Action for Student
+                    showStudentList = true
                 }) {
                     Text("Student")
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color(.systemGray5))
+                        .background(showStudentList ? Color.blue : Color(.systemGray5))
                         .cornerRadius(10)
+                        .foregroundColor(showStudentList ? .white : Color.primary)
                 }
                 
                 Button(action: {
-                    // Action for Mentor
+                    showStudentList = false
                 }) {
                     Text("Mentor")
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color(.systemGray5))
+                        .background(!showStudentList ? Color.blue : Color(.systemGray5))
                         .cornerRadius(10)
+                        .foregroundColor(!showStudentList ? .white : Color.primary)
                 }
             }
             .padding()
-
+            
             Spacer()
         }
+        .background(Color(UIColor.systemBackground))
     }
 }
 
 struct AdminHomeView_Previews: PreviewProvider {
     static var previews: some View {
         AdminHomeView()
+            .preferredColorScheme(.light) // Toggle to .dark for dark mode
     }
 }
