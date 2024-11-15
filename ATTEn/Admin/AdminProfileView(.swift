@@ -16,7 +16,7 @@ struct AdminProfileView: View {
         ("Aug 3, Monday", Array(repeating: "Reviewed reports for compliance.", count: 1))
     ]
     
-    var body: some View {
+var body: some View {
         VStack {
             // Scrollable List of User Activity or Notifications
             ScrollView {

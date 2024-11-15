@@ -16,12 +16,21 @@
 		200BC1892CD8FFA1004C9FD8 /* NotificationToMentorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC1882CD8FFA1004C9FD8 /* NotificationToMentorsView.swift */; };
 		200BC18B2CD90860004C9FD8 /* MentorStudentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC18A2CD90860004C9FD8 /* MentorStudentDetailView.swift */; };
 		200BC18D2CD90F60004C9FD8 /* MentorEventDetailVie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200BC18C2CD90F60004C9FD8 /* MentorEventDetailVie.swift */; };
+		201D61F82CE23FB900400EDF /* WeekDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201D61F72CE23FB900400EDF /* WeekDetailView.swift */; };
 		2024C2FF2CD5D56F00704605 /* StudentFixTimeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C2FE2CD5D56F00704605 /* StudentFixTimeSheetView.swift */; };
 		2024C3012CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C3002CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift */; };
 		2024C3032CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C3022CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift */; };
 		2024C3072CD5D7CD00704605 /* MentorFixTimeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C3062CD5D7CD00704605 /* MentorFixTimeSheetView.swift */; };
 		2024C3092CD5D7D700704605 /* MentorRequestTimeOffSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C3082CD5D7D700704605 /* MentorRequestTimeOffSheetView.swift */; };
 		2024C30B2CD5D7E100704605 /* MentorDetailedAttendanceListSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2024C30A2CD5D7E100704605 /* MentorDetailedAttendanceListSheetView.swift */; };
+		203C2B732CE798EF00D8F7A7 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C2B722CE798EF00D8F7A7 /* CloudKitManager.swift */; };
+		203C2B752CE7990300D8F7A7 /* AttendanceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C2B742CE7990300D8F7A7 /* AttendanceRecord.swift */; };
+		203C2B772CE7991E00D8F7A7 /* AttendanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C2B762CE7991E00D8F7A7 /* AttendanceListView.swift */; };
+		203C2B792CE7992F00D8F7A7 /* AddAttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C2B782CE7992F00D8F7A7 /* AddAttendanceView.swift */; };
+		203C2B7B2CE7994100D8F7A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C2B7A2CE7994100D8F7A7 /* AppDelegate.swift */; };
+		208AD6B12CE661EB0067C0E3 /* MentorMenteeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208AD6B02CE661EB0067C0E3 /* MentorMenteeListView.swift */; };
+		208AD6B32CE662100067C0E3 /* MentorStudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208AD6B22CE662100067C0E3 /* MentorStudentListView.swift */; };
+		208AD6B52CE662980067C0E3 /* MentorMenteeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208AD6B42CE662980067C0E3 /* MentorMenteeDetailView.swift */; };
 		20D853CB2CD55C29005363AB /* ATTEnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853CA2CD55C29005363AB /* ATTEnApp.swift */; };
 		20D853CD2CD55C29005363AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853CC2CD55C29005363AB /* ContentView.swift */; };
 		20D853CF2CD55C29005363AB /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D853CE2CD55C29005363AB /* Item.swift */; };
@@ -71,12 +80,21 @@
 		200BC1882CD8FFA1004C9FD8 /* NotificationToMentorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationToMentorsView.swift; sourceTree = "<group>"; };
 		200BC18A2CD90860004C9FD8 /* MentorStudentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorStudentDetailView.swift; sourceTree = "<group>"; };
 		200BC18C2CD90F60004C9FD8 /* MentorEventDetailVie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorEventDetailVie.swift; sourceTree = "<group>"; };
+		201D61F72CE23FB900400EDF /* WeekDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDetailView.swift; sourceTree = "<group>"; };
 		2024C2FE2CD5D56F00704605 /* StudentFixTimeSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentFixTimeSheetView.swift; sourceTree = "<group>"; };
 		2024C3002CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRequestTimeOffSheetView.swift; sourceTree = "<group>"; };
 		2024C3022CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailedAttendanceListSheetView.swift; sourceTree = "<group>"; };
 		2024C3062CD5D7CD00704605 /* MentorFixTimeSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorFixTimeSheetView.swift; sourceTree = "<group>"; };
 		2024C3082CD5D7D700704605 /* MentorRequestTimeOffSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorRequestTimeOffSheetView.swift; sourceTree = "<group>"; };
 		2024C30A2CD5D7E100704605 /* MentorDetailedAttendanceListSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorDetailedAttendanceListSheetView.swift; sourceTree = "<group>"; };
+		203C2B722CE798EF00D8F7A7 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		203C2B742CE7990300D8F7A7 /* AttendanceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRecord.swift; sourceTree = "<group>"; };
+		203C2B762CE7991E00D8F7A7 /* AttendanceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceListView.swift; sourceTree = "<group>"; };
+		203C2B782CE7992F00D8F7A7 /* AddAttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAttendanceView.swift; sourceTree = "<group>"; };
+		203C2B7A2CE7994100D8F7A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		208AD6B02CE661EB0067C0E3 /* MentorMenteeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorMenteeListView.swift; sourceTree = "<group>"; };
+		208AD6B22CE662100067C0E3 /* MentorStudentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorStudentListView.swift; sourceTree = "<group>"; };
+		208AD6B42CE662980067C0E3 /* MentorMenteeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorMenteeDetailView.swift; sourceTree = "<group>"; };
 		20D853C72CD55C29005363AB /* ATTEn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATTEn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D853CA2CD55C29005363AB /* ATTEnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTEnApp.swift; sourceTree = "<group>"; };
 		20D853CC2CD55C29005363AB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,6 +152,7 @@
 				2024C3022CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift */,
 				2024C3002CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift */,
 				2024C2FE2CD5D56F00704605 /* StudentFixTimeSheetView.swift */,
+				201D61F72CE23FB900400EDF /* WeekDetailView.swift */,
 			);
 			path = "sheet data";
 			sourceTree = "<group>";
@@ -146,6 +165,18 @@
 				2024C30A2CD5D7E100704605 /* MentorDetailedAttendanceListSheetView.swift */,
 			);
 			path = "sheet data";
+			sourceTree = "<group>";
+		};
+		203C2B712CE7986D00D8F7A7 /* Cloudkit */ = {
+			isa = PBXGroup;
+			children = (
+				203C2B722CE798EF00D8F7A7 /* CloudKitManager.swift */,
+				203C2B742CE7990300D8F7A7 /* AttendanceRecord.swift */,
+				203C2B762CE7991E00D8F7A7 /* AttendanceListView.swift */,
+				203C2B782CE7992F00D8F7A7 /* AddAttendanceView.swift */,
+				203C2B7A2CE7994100D8F7A7 /* AppDelegate.swift */,
+			);
+			path = Cloudkit;
 			sourceTree = "<group>";
 		};
 		20D853BE2CD55C29005363AB = {
@@ -171,6 +202,7 @@
 		20D853C92CD55C29005363AB /* ATTEn */ = {
 			isa = PBXGroup;
 			children = (
+				203C2B712CE7986D00D8F7A7 /* Cloudkit */,
 				20D854012CD56600005363AB /* Admin */,
 				20D854002CD565F6005363AB /* Mentor */,
 				20D853FF2CD55D95005363AB /* Student */,
@@ -233,6 +265,9 @@
 				20D8540A2CD571F0005363AB /* MentorHomeView.swift */,
 				200BC18A2CD90860004C9FD8 /* MentorStudentDetailView.swift */,
 				200BC18C2CD90F60004C9FD8 /* MentorEventDetailVie.swift */,
+				208AD6B02CE661EB0067C0E3 /* MentorMenteeListView.swift */,
+				208AD6B22CE662100067C0E3 /* MentorStudentListView.swift */,
+				208AD6B42CE662980067C0E3 /* MentorMenteeDetailView.swift */,
 			);
 			path = Mentor;
 			sourceTree = "<group>";
@@ -391,9 +426,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				208AD6B52CE662980067C0E3 /* MentorMenteeDetailView.swift in Sources */,
 				20D8540F2CD57221005363AB /* MentorEventsView.swift in Sources */,
 				20D853FA2CD55D54005363AB /* SudentCalendarView.swift in Sources */,
 				20D853FE2CD55D81005363AB /* StudentEventsView.swift in Sources */,
+				203C2B732CE798EF00D8F7A7 /* CloudKitManager.swift in Sources */,
 				20D854032CD56643005363AB /* SwithRoleView.swift in Sources */,
 				2024C3072CD5D7CD00704605 /* MentorFixTimeSheetView.swift in Sources */,
 				20D853CD2CD55C29005363AB /* ContentView.swift in Sources */,
@@ -404,23 +441,30 @@
 				20D854132CD57267005363AB /* AdminHomeView.swift in Sources */,
 				200BC1892CD8FFA1004C9FD8 /* NotificationToMentorsView.swift in Sources */,
 				20D854172CD57286005363AB /* AdminEventsView.swift in Sources */,
+				203C2B752CE7990300D8F7A7 /* AttendanceRecord.swift in Sources */,
 				2024C30B2CD5D7E100704605 /* MentorDetailedAttendanceListSheetView.swift in Sources */,
 				200BC17F2CD8FB78004C9FD8 /* MentorListView.swift in Sources */,
+				203C2B772CE7991E00D8F7A7 /* AttendanceListView.swift in Sources */,
+				203C2B792CE7992F00D8F7A7 /* AddAttendanceView.swift in Sources */,
 				2024C3012CD5D57E00704605 /* StudentRequestTimeOffSheetView.swift in Sources */,
+				203C2B7B2CE7994100D8F7A7 /* AppDelegate.swift in Sources */,
 				20D8540B2CD571F0005363AB /* MentorHomeView.swift in Sources */,
 				20D853F82CD55D19005363AB /* StudentHomeView.swift in Sources */,
 				200BC18B2CD90860004C9FD8 /* MentorStudentDetailView.swift in Sources */,
 				2024C2FF2CD5D56F00704605 /* StudentFixTimeSheetView.swift in Sources */,
 				200BC1872CD8FF92004C9FD8 /* NotificationToStudentsView.swift in Sources */,
 				20D853FC2CD55D6A005363AB /* StudentProfileView.swift in Sources */,
+				201D61F82CE23FB900400EDF /* WeekDetailView.swift in Sources */,
 				200BC1852CD8FF88004C9FD8 /* CreateEventView.swift in Sources */,
 				20D854152CD57278005363AB /* AdminProfileView(.swift in Sources */,
 				20D8540D2CD57203005363AB /* MentorProfileView.swift in Sources */,
 				20D853CB2CD55C29005363AB /* ATTEnApp.swift in Sources */,
 				2024C3092CD5D7D700704605 /* MentorRequestTimeOffSheetView.swift in Sources */,
 				2024C3032CD5D58800704605 /* StudentDetailedAttendanceListSheetView.swift in Sources */,
+				208AD6B32CE662100067C0E3 /* MentorStudentListView.swift in Sources */,
 				200BC1812CD8FCBB004C9FD8 /* StudentDetailView.swift in Sources */,
 				200BC18D2CD90F60004C9FD8 /* MentorEventDetailVie.swift in Sources */,
+				208AD6B12CE661EB0067C0E3 /* MentorMenteeListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -93,10 +93,10 @@ struct StudentTabView: View {
             StudentHomeView()
                 .tabItem {
                     Image(systemName: "house.fill")
-                    Text("Home")
+                    Text("Dashboard")
                 }
             
-            SimpleCalendarView()
+            StudentCalendarView()
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("Calendar")
@@ -121,22 +121,16 @@ struct StudentTabView: View {
 struct MentorTabView: View {
     var body: some View {
         Group {
-            MentorHomeView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Dashboard")
-                }
-            
-            MentorCalendarView()
-                .tabItem {
-                    Image(systemName: "calendar")
-                    Text("Schedule")
-                }
-            
             MentorProfileView()
                 .tabItem {
                     Image(systemName: "person.fill")
                     Text("Profile")
+                }
+            
+            MentorMessageCenterView()
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Schedule")
                 }
             
             MentorEventsView()

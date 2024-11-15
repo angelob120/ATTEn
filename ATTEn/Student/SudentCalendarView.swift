@@ -4,12 +4,16 @@
 //
 //  Created by AB on 11/1/24.
 //
+
 import SwiftUI
 
-struct SimpleCalendarView: View {
+struct StudentCalendarView: View {
     @State private var selectedDate: Date = Date()
+    @State private var showFixTimeSheet = false
+    @State private var showRequestTimeOffSheet = false
+    @State private var showDetailedAttendanceListSheet = false
+    
     private let calendar = Calendar.current
-    private let dateFormatter: DateFormatter
     private let monthYearFormatter: DateFormatter
     
     // Sample attendance data
@@ -18,9 +22,6 @@ struct SimpleCalendarView: View {
     ]
     
     init() {
-        dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d"
-        
         monthYearFormatter = DateFormatter()
         monthYearFormatter.dateFormat = "MMMM yyyy"
     }
@@ -31,7 +32,6 @@ struct SimpleCalendarView: View {
                 // Month and Year Title
                 HStack {
                     Button(action: {
-                        // Go to the previous month
                         selectedDate = calendar.date(byAdding: .month, value: -1, to: selectedDate) ?? selectedDate
                     }) {
                         Image(systemName: "chevron.left")
@@ -48,7 +48,6 @@ struct SimpleCalendarView: View {
                     Spacer()
                     
                     Button(action: {
-                        // Go to the next month
                         selectedDate = calendar.date(byAdding: .month, value: 1, to: selectedDate) ?? selectedDate
                     }) {
                         Image(systemName: "chevron.right")
@@ -59,7 +58,7 @@ struct SimpleCalendarView: View {
                 
                 // Calendar Grid
                 CalendarGridView(selectedDate: $selectedDate, attendanceStatus: attendanceStatus)
-                    .padding(.horizontal, 8) // Adjust padding for better layout
+                    .padding(.horizontal, 8)
                 
                 // Legend
                 LegendView()
@@ -69,10 +68,19 @@ struct SimpleCalendarView: View {
                 TimeOffSummaryView()
                 
                 // Action buttons
-                ActionButtonView()
+                ActionButtonView(showFixTimeSheet: $showFixTimeSheet, showRequestTimeOffSheet: $showRequestTimeOffSheet, showDetailedAttendanceListSheet: $showDetailedAttendanceListSheet)
             }
             .padding()
             .background(Color(UIColor.systemBackground))
+        }
+        .sheet(isPresented: $showFixTimeSheet) {
+            StudentFixTimeSheetView()
+        }
+        .sheet(isPresented: $showRequestTimeOffSheet) {
+            StudentRequestTimeOffSheetView()
+        }
+        .sheet(isPresented: $showDetailedAttendanceListSheet) {
+            StudentDetailedAttendanceListSheetView() // Ensure this struct name is correct and available in scope
         }
     }
 }
@@ -223,9 +231,9 @@ struct TimeOffSummaryView: View {
 
 // Bottom action buttons for Fix Time, Request Time Off, and Detailed Attendance List
 struct ActionButtonView: View {
-    @State private var showFixTimeSheet = false
-    @State private var showRequestTimeOffSheet = false
-    @State private var showDetailedAttendanceListSheet = false
+    @Binding var showFixTimeSheet: Bool
+    @Binding var showRequestTimeOffSheet: Bool
+    @Binding var showDetailedAttendanceListSheet: Bool
     
     var body: some View {
         VStack(spacing: 4) {
@@ -241,9 +249,6 @@ struct ActionButtonView: View {
                 .background(Color(UIColor.secondarySystemBackground))
                 .cornerRadius(8)
             }
-            .sheet(isPresented: $showFixTimeSheet) {
-                StudentFixTimeSheetView()
-            }
             
             Button(action: {
                 showRequestTimeOffSheet = true
@@ -256,9 +261,6 @@ struct ActionButtonView: View {
                 .padding()
                 .background(Color(UIColor.secondarySystemBackground))
                 .cornerRadius(8)
-            }
-            .sheet(isPresented: $showRequestTimeOffSheet) {
-                StudentRequestTimeOffSheetView()
             }
             
             Button(action: {
@@ -273,16 +275,13 @@ struct ActionButtonView: View {
                 .background(Color(UIColor.secondarySystemBackground))
                 .cornerRadius(8)
             }
-            .sheet(isPresented: $showDetailedAttendanceListSheet) {
-                StudentDetailedAttendanceListSheetView()
-            }
         }
         .padding(.top, 8)
     }
 }
 
-struct SimpleCalendarView_Previews: PreviewProvider {
+struct StudentCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        SimpleCalendarView()
+        StudentCalendarView()
     }
 }

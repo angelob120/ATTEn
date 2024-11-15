@@ -40,4 +40,4 @@ struct MentorDetailView: View {
         .navigationTitle("Mentor Details")
         .navigationBarTitleDisplayMode(.inline)
     }
-}
+} 

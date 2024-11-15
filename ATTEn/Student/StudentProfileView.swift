@@ -4,6 +4,12 @@
 //
 //  Created by AB on 11/1/24.
 //
+//
+//  StudentProfileView.swift
+//  ATTEn
+//
+//  Created by AB on 11/1/24.
+//
 
 import SwiftUI
 
@@ -69,6 +75,7 @@ struct StudentProfileView: View {
             VStack(spacing: 0) {
                 Button(action: {
                     // Action for requesting loaner device
+                    // You can add specific actions here if required
                 }) {
                     HStack {
                         Text("Request Loaner Device")
@@ -82,11 +89,13 @@ struct StudentProfileView: View {
                     .cornerRadius(8)
                 }
                 .padding(.horizontal)
-                
-                Spacer()
+                .padding(.vertical)
                 
                 Button(action: {
-                    // Action for One Login Dashboard
+                    // Open the One Login Dashboard URL in Safari
+                    if let url = URL(string: "https://developeracademy.onelogin.com/login2/?return=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZl9tdWx0aXBsZV9icmFuZHMiOnRydWUsInVyaSI6Imh0dHBzOi8vZGV2ZWxvcGVyYWNhZGVteS5vbmVsb2dpbi5jb20vIiwiYnJhbmRfaWQiOiJtYXN0ZXIiLCJhdWQiOiJBQ0NFU1MiLCJpc3MiOiJNT05PUkFJTCIsImV4cCI6MTczMTYwNTU5NSwicGFyYW1zIjp7fSwibWV0aG9kIjoiZ2V0In0.TilYm0_Q2W7AqtRwANCw4SM5BKOtkCoJNpAVSTGkJ6w#app=") {
+                        UIApplication.shared.open(url)
+                    }
                 }) {
                     HStack {
                         Text("One Login Dashboard")
@@ -102,8 +111,8 @@ struct StudentProfileView: View {
                 .padding(.horizontal)
                 .padding(.bottom, 20)
             }
-            
             Spacer()
+            
         }
         .padding(.horizontal)
         .background(Color(UIColor.systemBackground)) // Adaptive background

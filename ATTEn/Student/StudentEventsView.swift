@@ -4,10 +4,13 @@
 //
 //  Created by AB on 11/1/24.
 //
+
 import SwiftUI
 
 struct StudentEventsView: View {
     var events = Array(repeating: Event(date: "SEP:3", day: "WENS", title: "Event 1:", subtitle: "Networking Event"), count: 7)
+    
+    @State private var selectedEvent: Event? = nil
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -48,6 +51,9 @@ struct StudentEventsView: View {
                 VStack(spacing: 10) {
                     ForEach(events.indices, id: \.self) { index in
                         EventRow(event: events[index], isHighlighted: index == 0) // Highlight the first event
+                            .onTapGesture {
+                                selectedEvent = events[index]
+                            }
                     }
                 }
                 .padding(.horizontal, 19)
@@ -58,6 +64,9 @@ struct StudentEventsView: View {
         }
         .background(Color(UIColor.systemBackground)) // Adaptive background color
         .navigationBarTitle("Events", displayMode: .inline)
+        .sheet(item: $selectedEvent) { event in
+            StudentEventDetailView(event: event)
+        }
     }
 }
 
@@ -117,6 +126,33 @@ struct EventRow: View {
             }
         }
         .padding(.vertical, 5)
+    }
+}
+
+// Event Detail View for the Pop-up Sheet
+struct StudentEventDetailView: View {
+    let event: Event
+    
+    var body: some View {
+        VStack {
+            Text(event.title)
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding()
+            
+            Text(event.subtitle)
+                .font(.title2)
+                .foregroundColor(.secondary)
+                .padding()
+            
+            Text("Date: \(event.date), Day: \(event.day)")
+                .font(.body)
+                .foregroundColor(.primary)
+                .padding()
+            
+            Spacer()
+        }
+        .padding()
     }
 }
 
